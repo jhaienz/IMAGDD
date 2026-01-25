@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryGrid from '../components/GalleryGrid';
+---
+
+<Layout title="IMAGDD 2025 - Gallery" description="View highlights from IMAGDD 2025">
+  <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">IMAGDD 2025 Gallery</h1>
+      <p class="text-xl md:text-2xl font-light">
+        Relive the highlights from our previous event
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12 text-center">
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+        IMAGDD 2025 was an incredible success with over 400 participants, 30+ workshops,
+        and countless memorable moments. Browse through the photos to see the innovation,
+        creativity, and community that made it special.
+      </p>
+    </div>
+
+    <GalleryGrid client:load />
+  </div>
+</Layout>
