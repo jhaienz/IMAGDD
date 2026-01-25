@@ -70,17 +70,31 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <div className="mb-4">
-            <div className="flex flex-wrap justify-center gap-2 text-sm text-purple-400">
-              <span>#IMAGDD2026</span>
-              <span>#GDAPNaga</span>
-              <span>#AdNU</span>
-              <span>#NCF</span>
-              <span>#BISCAST</span>
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          {/* Partner Logos */}
+          <div className="mb-8">
+            <p className="text-center text-sm text-gray-500 mb-4">In Partnership With</p>
+            <div className="flex flex-wrap justify-center items-center gap-6 opacity-60">
+              <img src="/logo.png" alt="GDAP" className="h-12 w-auto grayscale" />
+              <img src="/adnu.png" alt="Ateneo de Naga University" className="h-12 w-auto grayscale" />
+              <img src="/ncf.jpg" alt="NCF" className="h-12 w-auto grayscale" />
+              <img src="/biscast.jpg" alt="BISCAST" className="h-12 w-auto grayscale" />
+              <img src="/ryneMedia.jpg" alt="Ryne Media" className="h-12 w-auto grayscale" />
             </div>
           </div>
-          <p className="text-sm text-gray-400">&copy; 2026 IMAGDD. All rights reserved.</p>
+
+          <div className="text-center">
+            <div className="mb-4">
+              <div className="flex flex-wrap justify-center gap-2 text-sm text-purple-400">
+                <span>#IMAGDD2026</span>
+                <span>#GDAPNaga</span>
+                <span>#AdNU</span>
+                <span>#NCF</span>
+                <span>#BISCAST</span>
+              </div>
+            </div>
+            <p className="text-sm text-gray-400">&copy; 2026 IMAGDD. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
