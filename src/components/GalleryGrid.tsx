@@ -86,7 +86,7 @@ export default function GalleryGrid() {
             onClick={() => setSelectedCategory(category)}
             className={`px-6 py-2 rounded-full font-medium transition-all ${
               selectedCategory === category
-                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                ? 'bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 font-bold shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >

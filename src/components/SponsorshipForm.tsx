@@ -219,11 +219,11 @@ export default function SponsorshipForm() {
               </div>
             </div>
 
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-900 mb-2">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2">
                 What's Included
               </h4>
-              <p className="text-sm text-purple-800">
+              <p className="text-sm text-gray-800">
                 All sponsorship packages include brand visibility, networking
                 opportunities, and the chance to connect with 500+ industry
                 professionals, developers, artists, and students from around the

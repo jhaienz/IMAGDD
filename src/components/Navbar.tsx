@@ -18,7 +18,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-3">
               <img src="/logo.png" alt="IMAGDD Logo" className="h-15 w-auto" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-yellow-500 to-amber-600 bg-clip-text text-transparent">
                 IMAGDD 2026
               </span>
             </a>
@@ -30,7 +30,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
               >
                 {item.name}
               </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-purple-600"
+              className="text-gray-700 hover:text-red-600"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -57,7 +57,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md font-medium"
+                className="block px-3 py-2 text-gray-700 hover:text-red-600 hover:bg-yellow-50 rounded-md font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

@@ -59,7 +59,7 @@ export default function EventDescription() {
             interactive media, IMAGDD 2026 is your chance to learn, connect, and help shape the future of
             the game and creative tech industry.
           </p>
-          <p className="text-2xl font-bold text-purple-600 mt-6">
+          <p className="text-2xl font-bold text-red-600 mt-6">
             Game on. The future starts here.
           </p>
         </div>
@@ -70,8 +70,8 @@ export default function EventDescription() {
             return (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-gray-900" />
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
@@ -89,43 +89,43 @@ export default function EventDescription() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">What to Expect</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="font-semibold text-lg mb-3 text-purple-600">For Participants</h4>
+              <h4 className="font-semibold text-lg mb-3 text-red-600">For Participants</h4>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-purple-600 mr-2">•</span>
+                  <span className="text-red-600 mr-2">•</span>
                   <span>Inspiring talks from industry professionals and leaders</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-purple-600 mr-2">•</span>
+                  <span className="text-red-600 mr-2">•</span>
                   <span>Insightful discussions on latest trends and tools</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-purple-600 mr-2">•</span>
+                  <span className="text-red-600 mr-2">•</span>
                   <span>Networking with creative minds and future innovators</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-purple-600 mr-2">•</span>
+                  <span className="text-red-600 mr-2">•</span>
                   <span>Learn about opportunities in game development and interactive media</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-lg mb-3 text-pink-600">For Industry & Sponsors</h4>
+              <h4 className="font-semibold text-lg mb-3 text-green-600">For Industry & Sponsors</h4>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-pink-600 mr-2">•</span>
+                  <span className="text-green-600 mr-2">•</span>
                   <span>Connect with emerging talent and future game developers</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-pink-600 mr-2">•</span>
+                  <span className="text-green-600 mr-2">•</span>
                   <span>Showcase your products and services to passionate creators</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-pink-600 mr-2">•</span>
+                  <span className="text-green-600 mr-2">•</span>
                   <span>Build meaningful partnerships within the creative tech community</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-pink-600 mr-2">•</span>
+                  <span className="text-green-600 mr-2">•</span>
                   <span>Sponsorship opportunities to support the next generation</span>
                 </li>
               </ul>

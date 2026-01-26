@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* IMAGDD 2026 Custom Theme Colors */
+:root {
+  /* Primary Yellow/Gold Colors */
+  --color-primary-yellow: #FFC107;
+  --color-primary-gold: #FFCA28;
+  --color-primary-amber: #F59E0B;
+
+  /* Accent Colors */
+  --color-accent-red: #DC2626;
+  --color-accent-red-hover: #B91C1C;
+  --color-accent-green: #16A34A;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #FFC107 0%, #FFCA28 50%, #F59E0B 100%);
+  --gradient-button: linear-gradient(to right, #FFCA28, #F59E0B);
+}

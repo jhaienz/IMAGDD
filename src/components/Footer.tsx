@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
               About IMAGDD
             </h3>
             <p className="text-gray-400 text-sm">
@@ -22,13 +22,13 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <a href="mailto:ryanabecina01@gmail.com" className="hover:text-purple-400 transition-colors">
+                <a href="mailto:ryanabecina01@gmail.com" className="hover:text-yellow-400 transition-colors">
                   ryanabecina01@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={16} />
-                <a href="tel:09395792253" className="hover:text-purple-400 transition-colors">
+                <a href="tel:09395792253" className="hover:text-yellow-400 transition-colors">
                   0939 579 2253
                 </a>
               </div>
@@ -42,7 +42,7 @@ export default function Footer() {
                   href="https://www.facebook.com/profile.php?id=61573611815276"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-purple-400 transition-colors"
+                  className="hover:text-yellow-400 transition-colors"
                 >
                   Follow us on Facebook
                 </a>
@@ -54,16 +54,16 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <div className="space-y-2 text-sm">
-              <a href="/" className="block text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="/" className="block text-gray-400 hover:text-yellow-400 transition-colors">
                 Home
               </a>
-              <a href="/gallery" className="block text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="/gallery" className="block text-gray-400 hover:text-yellow-400 transition-colors">
                 Gallery
               </a>
-              <a href="/register" className="block text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="/register" className="block text-gray-400 hover:text-yellow-400 transition-colors">
                 Participant Registration
               </a>
-              <a href="/sponsors" className="block text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="/sponsors" className="block text-gray-400 hover:text-yellow-400 transition-colors">
                 Become a Sponsor
               </a>
             </div>
@@ -85,7 +85,7 @@ export default function Footer() {
 
           <div className="text-center">
             <div className="mb-4">
-              <div className="flex flex-wrap justify-center gap-2 text-sm text-purple-400">
+              <div className="flex flex-wrap justify-center gap-2 text-sm text-yellow-400">
                 <span>#IMAGDD2026</span>
                 <span>#GDAPNaga</span>
                 <span>#AdNU</span>
