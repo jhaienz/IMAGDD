@@ -1,10 +1,10 @@
 export default function Partners() {
   const partners = [
-    { name: 'GDAP', logo: '/logo.png' },
-    { name: 'Ateneo de Naga University', logo: '/adnu.png' },
-    { name: 'NCF', logo: '/ncf.jpg' },
-    { name: 'BISCAST', logo: '/biscast.jpg' },
-    { name: 'Ryne Media', logo: '/ryneMedia.jpg' },
+    { name: "GDAP", logo: "/logo.png" },
+    { name: "Ateneo de Naga University", logo: "/adnu.png" },
+    { name: "NCF", logo: "/ncf.jpg" },
+    { name: "BISCAST", logo: "/biscast.jpg" },
+    { name: "Ryne Media", logo: "/ryneMedia.jpg" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function Partners() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300"
+              className="flex items-center justify-center p-4 transition-all duration-300"
             >
               <img
                 src={partner.logo}
