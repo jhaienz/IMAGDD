@@ -23,7 +23,7 @@ export default function Footer() {
       {
         threshold: 0,
         rootMargin: "50px 0px 0px 0px",
-      }
+      },
     );
 
     const timeoutId = setTimeout(() => {
@@ -39,14 +39,49 @@ export default function Footer() {
   }, []);
 
   const footerLogos = [
-    { src: "/imagdd_old_logo.jpg", alt: "Imagdd", rounded: true, url: "https://gdap.org.ph/" },
-    { src: "/adnu.png", alt: "Ateneo de Naga University", rounded: true, url: "https://www.adnu.edu.ph/" },
+    {
+      src: "/imagdd_old_logo.jpg",
+      alt: "Imagdd",
+      rounded: true,
+      url: "https://gdap.org.ph/",
+    },
+    {
+      src: "/adnu.png",
+      alt: "Ateneo de Naga University",
+      rounded: true,
+      url: "https://www.adnu.edu.ph/",
+    },
     { src: "/ncf.jpg", alt: "NCF", rounded: true, url: "https://ncf.edu.ph/" },
-    { src: "/biscast.jpg", alt: "BISCAST", rounded: true, url: "https://www.biscast.edu.ph/" },
-    { src: "/ryneMedia.jpg", alt: "Ryne Media", rounded: true, url: "https://www.rynemedia.com/" },
-    { src: "/[LOGO] CITY SEAL.png", alt: "City of Naga Seal", rounded: false, url: "https://www2.naga.gov.ph/naga-city-profile/" },
-    { src: "/[LOGO] IKA AKO KITA AN NAGA.png", alt: "Ika Ako Kita An Naga", rounded: false, url: "https://www2.naga.gov.ph/" },
-    { src: "/[LOGO] NCIB-ITPO.png", alt: "NCIB-ITPO", rounded: false, url: "https://www2.naga.gov.ph/investor-main/about-the-ncib/#gsc.tab=0" },
+    {
+      src: "/biscast.jpg",
+      alt: "BISCAST",
+      rounded: true,
+      url: "https://www.biscast.edu.ph/",
+    },
+    {
+      src: "/ryneMedia.jpg",
+      alt: "Ryne Media",
+      rounded: true,
+      url: "https://www.rynemedia.com/",
+    },
+    {
+      src: "/[LOGO] CITY SEAL.png",
+      alt: "City of Naga Seal",
+      rounded: false,
+      url: "https://www2.naga.gov.ph/naga-city-profile/",
+    },
+    {
+      src: "/[LOGO] IKA AKO KITA AN NAGA.png",
+      alt: "Ika Ako Kita An Naga",
+      rounded: false,
+      url: "https://www2.naga.gov.ph/",
+    },
+    {
+      src: "/[LOGO] NCIB-ITPO.png",
+      alt: "NCIB-ITPO",
+      rounded: false,
+      url: "https://www2.naga.gov.ph/investor-main/about-the-ncib/#gsc.tab=0",
+    },
   ];
 
   return (
@@ -55,9 +90,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ color: "#ffcc01" }}>
-              About IMAGDD
-            </h3>
+            <h3 className="text-lg font-bold mb-4">About IMAGDD</h3>
             <p className="text-gray-400 text-sm">
               GDAP Academic Roadshow 2026 - Innovations in Multimedia,
               Animation, and Game Design Development. A three-day roadshow
@@ -70,6 +103,12 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <div className="space-y-2 text-sm text-gray-400">
+              <div className="mb-3">
+                <p className="text-white font-semibold">Ryan Abecina</p>
+                <p className="text-xs" style={{ color: "#ffcc01" }}>
+                  GDAP NAGA President
+                </p>
+              </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} />
                 <a
@@ -97,11 +136,11 @@ export default function Footer() {
                   className="hover:text-yellow-400 transition-colors"
                 >
                   <span>
-                    Bicol State College of Applied Sciences and Technology
+                    Ateneo de Naga University
                     <br />
-                    98 Peñafrancia Ave, Naga City
+                    Ateneo Avenue, Bagumbayan Sur, Naga City
                     <br />
-                    Camarines Sur, Philippines
+                    Camarines Sur, Philippines 4400.
                   </span>
                 </a>
               </div>
@@ -161,7 +200,9 @@ export default function Footer() {
               {footerLogos.map((logo, index) => (
                 <a
                   key={index}
-                  ref={(el) => { logoRefs.current[index] = el; }}
+                  ref={(el) => {
+                    logoRefs.current[index] = el;
+                  }}
                   href={logo.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -171,7 +212,7 @@ export default function Footer() {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className={`h-12 w-auto opacity-60 hover:opacity-100 transition-opacity ${logo.rounded ? "rounded-full" : ""}`}
+                    className={`h-20 w-auto opacity-60 hover:opacity-100 transition-opacity ${logo.rounded ? "rounded-full" : ""}`}
                   />
                 </a>
               ))}

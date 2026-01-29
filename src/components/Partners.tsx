@@ -106,7 +106,7 @@ export default function Partners() {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-h-24 w-auto object-contain"
+                  className="max-h-40 w-auto object-contain"
                 />
               </a>
             </div>
