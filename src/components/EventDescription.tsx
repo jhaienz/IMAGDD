@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Gamepad2, Palette, Film, Code, Trophy, Lightbulb } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
@@ -35,10 +36,49 @@ const features = [
 ];
 
 export default function EventDescription() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) {
+      cardRefs.current.forEach((ref) => {
+        if (ref) ref.classList.add("visible");
+      });
+      if (sectionRef.current) sectionRef.current.classList.add("visible");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "50px 0px 0px 0px",
+      }
+    );
+
+    const timeoutId = setTimeout(() => {
+      cardRefs.current.forEach((ref) => {
+        if (ref) observer.observe(ref);
+      });
+      if (sectionRef.current) observer.observe(sectionRef.current);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div ref={sectionRef} className="scroll-animate text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             About IMAGDD 2026
           </h2>
@@ -68,19 +108,26 @@ export default function EventDescription() {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-gray-900" />
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <div
+                key={index}
+                ref={(el) => { cardRefs.current[index] = el; }}
+                className="scroll-animate-scale"
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#ffcc01' }}>
+                      <Icon className="w-6 h-6 text-gray-900" />
+                    </div>
+                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
             );
           })}
         </div>

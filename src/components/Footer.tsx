@@ -1,13 +1,61 @@
+import { useEffect, useRef } from "react";
 import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 
 export default function Footer() {
+  const logoRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) {
+      logoRefs.current.forEach((ref) => {
+        if (ref) ref.classList.add("visible");
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "50px 0px 0px 0px",
+      }
+    );
+
+    const timeoutId = setTimeout(() => {
+      logoRefs.current.forEach((ref) => {
+        if (ref) observer.observe(ref);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, []);
+
+  const footerLogos = [
+    { src: "/imagdd_old_logo.jpg", alt: "Imagdd", rounded: true, url: "https://gdap.org.ph/" },
+    { src: "/adnu.png", alt: "Ateneo de Naga University", rounded: true, url: "https://www.adnu.edu.ph/" },
+    { src: "/ncf.jpg", alt: "NCF", rounded: true, url: "https://ncf.edu.ph/" },
+    { src: "/biscast.jpg", alt: "BISCAST", rounded: true, url: "https://www.biscast.edu.ph/" },
+    { src: "/ryneMedia.jpg", alt: "Ryne Media", rounded: true, url: "https://www.rynemedia.com/" },
+    { src: "/[LOGO] CITY SEAL.png", alt: "City of Naga Seal", rounded: false, url: "https://www2.naga.gov.ph/naga-city-profile/" },
+    { src: "/[LOGO] IKA AKO KITA AN NAGA.png", alt: "Ika Ako Kita An Naga", rounded: false, url: "https://www2.naga.gov.ph/" },
+    { src: "/[LOGO] NCIB-ITPO.png", alt: "NCIB-ITPO", rounded: false, url: "https://www2.naga.gov.ph/investor-main/about-the-ncib/#gsc.tab=0" },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ color: '#ffcc01' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ color: "#ffcc01" }}>
               About IMAGDD
             </h3>
             <p className="text-gray-400 text-sm">
@@ -42,13 +90,20 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5" />
-                <span>
-                  Xavier Hall
-                  <br />
-                  Ateneo de Naga University
-                  <br />
-                  Naga City, Philippines
-                </span>
+                <a
+                  href="https://maps.app.goo.gl/RmFFfJxhhXa9DknP7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition-colors"
+                >
+                  <span>
+                    Bicol State College of Applied Sciences and Technology
+                    <br />
+                    98 Peñafrancia Ave, Naga City
+                    <br />
+                    Camarines Sur, Philippines
+                  </span>
+                </a>
               </div>
               <div className="flex items-center gap-2 pt-2">
                 <Facebook size={16} />
@@ -102,53 +157,33 @@ export default function Footer() {
             <p className="text-center text-sm text-gray-500 mb-4">
               In Partnership With
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 opacity-60">
-              <img
-                src="/imagdd_old_logo.jpg"
-                alt="Imagdd"
-                className="h-12 w-auto rounded-full"
-              />
-              <img
-                src="/adnu.png"
-                alt="Ateneo de Naga University"
-                className="h-12 w-auto rounded-full"
-              />
-              <img
-                src="/ncf.jpg"
-                alt="NCF"
-                className="h-12 w-auto rounded-full"
-              />
-              <img
-                src="/biscast.jpg"
-                alt="BISCAST"
-                className="h-12 w-auto rounded-full"
-              />
-              <img
-                src="/ryneMedia.jpg"
-                alt="Ryne Media"
-                className="h-12 w-auto rounded-full"
-              />
-              <img
-                src="/[LOGO] CITY SEAL.png"
-                alt="City of Naga Seal"
-                className="h-12 w-auto"
-              />
-              <img
-                src="/[LOGO] IKA AKO KITA AN NAGA.png"
-                alt="Ika Ako Kita An Naga"
-                className="h-12 w-auto"
-              />
-              <img
-                src="/[LOGO] NCIB-ITPO.png"
-                alt="NCIB-ITPO"
-                className="h-12 w-auto"
-              />
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              {footerLogos.map((logo, index) => (
+                <a
+                  key={index}
+                  ref={(el) => { logoRefs.current[index] = el; }}
+                  href={logo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="scroll-animate-scale block transition-all duration-300 hover:scale-110"
+                  style={{ transitionDelay: `${index * 60}ms` }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className={`h-12 w-auto opacity-60 hover:opacity-100 transition-opacity ${logo.rounded ? "rounded-full" : ""}`}
+                  />
+                </a>
+              ))}
             </div>
           </div>
 
           <div className="text-center">
             <div className="mb-4">
-              <div className="flex flex-wrap justify-center gap-2 text-sm" style={{ color: '#ffcc01' }}>
+              <div
+                className="flex flex-wrap justify-center gap-2 text-sm"
+                style={{ color: "#ffcc01" }}
+              >
                 <span>#IMAGDD2026</span>
                 <span>#GDAPNaga</span>
                 <span>#AdNU</span>

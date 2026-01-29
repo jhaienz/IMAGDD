@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Textarea } from "./ui/textarea";
 import {
   Card,
   CardContent,
@@ -15,34 +14,41 @@ import { CheckCircle } from "lucide-react";
 export default function ParticipantRegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
-    phone: "",
-    organization: "",
-    role: "",
-    interests: "",
-    dietaryRestrictions: "",
-    attendanceType: "full",
-    workshopPreferences: "",
+    fullName: "",
+    designation: "",
+    otherDesignation: "",
+    affiliation: "",
+    contactNumber: "",
+    privacyConsent: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.privacyConsent) {
+      alert("Please acknowledge and consent to the data privacy terms.");
+      return;
+    }
     // In a real application, you would send this data to your backend
     console.log("Form submitted:", formData);
     setSubmitted(true);
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value, type } = e.target;
+    if (type === "checkbox") {
+      setFormData({
+        ...formData,
+        [name]: (e.target as HTMLInputElement).checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   if (submitted) {
@@ -78,7 +84,7 @@ export default function ParticipantRegistrationForm() {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl">Participant Registration</CardTitle>
+        <CardTitle className="text-2xl">Register as Participant</CardTitle>
         <CardDescription>
           Fill out the form below to register for IMAGDD 2026. All fields marked
           with * are required.
@@ -86,152 +92,110 @@ export default function ParticipantRegistrationForm() {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Personal Information */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Personal Information
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name *</Label>
-                <Input
-                  id="firstName"
-                  name="firstName"
-                  required
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder="John"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name *</Label>
-                <Input
-                  id="lastName"
-                  name="lastName"
-                  required
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  placeholder="Doe"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="email">Email Address *</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="john.doe@example.com"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number *</Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+1 (555) 123-4567"
-              />
-            </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email *</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="juan.delacruz@example.com"
+            />
           </div>
 
-          {/* Professional Information */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Professional Information
-            </h3>
-
-            <div className="space-y-2">
-              <Label htmlFor="organization">Organization/Institution</Label>
-              <Input
-                id="organization"
-                name="organization"
-                value={formData.organization}
-                onChange={handleChange}
-                placeholder="Your company or university"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="role">Your Role/Title *</Label>
-              <Input
-                id="role"
-                name="role"
-                required
-                value={formData.role}
-                onChange={handleChange}
-                placeholder="Game Developer, Designer, Student, etc."
-              />
-            </div>
+          <div className="space-y-2">
+            <Label htmlFor="fullName">Full Name *</Label>
+            <Input
+              id="fullName"
+              name="fullName"
+              required
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Juan Dela Cruz"
+            />
           </div>
 
-          {/* Event Preferences */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Event Preferences
-            </h3>
+          <div className="space-y-2">
+            <Label htmlFor="designation">Designation *</Label>
+            <select
+              id="designation"
+              name="designation"
+              required
+              value={formData.designation}
+              onChange={handleChange}
+              className="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
+            >
+              <option value="">Select your designation</option>
+              <option value="student">Student</option>
+              <option value="game_developer">Game Developer</option>
+              <option value="educator">Educator</option>
+              <option value="industry_professional">Industry Professional</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
 
+          {formData.designation === "other" && (
             <div className="space-y-2">
-              <Label htmlFor="attendanceType">Attendance Type *</Label>
-              <select
-                id="attendanceType"
-                name="attendanceType"
+              <Label htmlFor="otherDesignation">Please specify *</Label>
+              <Input
+                id="otherDesignation"
+                name="otherDesignation"
                 required
-                value={formData.attendanceType}
+                value={formData.otherDesignation}
                 onChange={handleChange}
-                className="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
-              >
-                <option value="full">Full Conference (3 Days)</option>
-                <option value="day1">Day 1 Only</option>
-                <option value="day2">Day 2 Only</option>
-                <option value="day3">Day 3 Only</option>
-              </select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="interests">Areas of Interest *</Label>
-              <Textarea
-                id="interests"
-                name="interests"
-                required
-                value={formData.interests}
-                onChange={handleChange}
-                placeholder="e.g., Game Development, 3D Animation, VR/AR, Digital Art..."
-                rows={3}
+                placeholder="Enter your designation"
               />
             </div>
+          )}
 
-            <div className="space-y-2">
-              <Label htmlFor="workshopPreferences">Workshop Preferences</Label>
-              <Textarea
-                id="workshopPreferences"
-                name="workshopPreferences"
-                value={formData.workshopPreferences}
+          <div className="space-y-2">
+            <Label htmlFor="affiliation">Affiliation (School/Company/Organization) *</Label>
+            <Input
+              id="affiliation"
+              name="affiliation"
+              required
+              value={formData.affiliation}
+              onChange={handleChange}
+              placeholder="Your school, company, or organization"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="contactNumber">Contact Number *</Label>
+            <Input
+              id="contactNumber"
+              name="contactNumber"
+              type="tel"
+              required
+              value={formData.contactNumber}
+              onChange={handleChange}
+              placeholder="09XX XXX XXXX"
+            />
+          </div>
+
+          {/* Data Privacy Consent */}
+          <div className="space-y-4 pt-4 border-t border-gray-200">
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="privacyConsent"
+                name="privacyConsent"
+                checked={formData.privacyConsent}
                 onChange={handleChange}
-                placeholder="List any specific workshops you're interested in attending"
-                rows={3}
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-600"
+                required
               />
+              <Label htmlFor="privacyConsent" className="text-sm text-gray-600 font-normal leading-relaxed">
+                I acknowledge and consent to the collection and processing of my personal information for event registration, attendance tracking, communication, and reporting purposes in accordance with the <strong>Data Privacy Act of 2012</strong>.
+              </Label>
             </div>
           </div>
 
           <Button type="submit" className="w-full" size="lg">
             Complete Registration
           </Button>
-
-          <p className="text-xs text-gray-500 text-center">
-            By submitting this form, you agree to our terms and conditions and
-            privacy policy.
-          </p>
         </form>
       </CardContent>
     </Card>

@@ -26,6 +26,7 @@ pnpm preview
 - **Tailwind CSS v4** - Styling via Vite plugin
 - **TypeScript** - Strict mode enabled
 - **shadcn/ui** - UI component library adapted for Astro + React
+- **MDX** - Markdown with JSX support for content pages
 - **lucide-react** - Icon library
 - **canvas-confetti** - Confetti animations
 
@@ -57,7 +58,8 @@ The site uses a three-color theme based on the IMAGDD 2026 video:
 - **Accent (Red)**: `#ff0101` - CTAs, important text, call-to-action buttons
 - Primary gradient: `linear-gradient(135deg, #ffcc01 0%, #ffe14d 50%, #e6b800 100%)`
 - CSS custom properties defined in `src/styles/global.css`
-- Scroll animations defined in global.css (`.scroll-animate`, `.scroll-animate-left`, etc.)
+- Scroll animations defined in global.css (`.scroll-animate`, `.scroll-animate-left`, `.scroll-animate-right`, `.scroll-animate-scale`)
+  - Add `.visible` class via JavaScript (IntersectionObserver) to trigger animations
 - Use inline styles for precise color matching when Tailwind classes don't match exactly
 
 #### shadcn/ui Components
@@ -76,7 +78,7 @@ src/
 │   └── *.astro          # Astro-specific components
 ├── layouts/
 │   ├── Layout.astro     # Main layout with Navbar and Footer (use for standard pages)
-│   └── main.astro       # Minimal layout without nav/footer
+│   └── main.astro       # Minimal layout for markdown/MDX pages (uses content.title prop)
 ├── lib/
 │   └── utils.ts         # cn() utility for className merging
 ├── pages/               # File-based routing
