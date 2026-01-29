@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 
 export default function Hero() {
   return (
-    <div className="relative bg-gradient-to-br from-yellow-400 via-yellow-300 to-amber-400 text-gray-900">
+    <div className="relative text-gray-900" style={{ backgroundColor: '#ffcc01' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-gray-900">
@@ -18,7 +18,7 @@ export default function Hero() {
 
           {/* Main Tagline */}
           <div className="mb-10">
-            <p className="text-3xl md:text-5xl font-extrabold text-red-600 leading-tight">
+            <p className="text-3xl md:text-5xl font-extrabold leading-tight" style={{ color: '#ff0101' }}>
               LEARN, CREATE,<br />AND CONNECT<br />WITH INDUSTRY EXPERTS
             </p>
           </div>
@@ -40,12 +40,12 @@ export default function Hero() {
 
           <div className="flex flex-wrap justify-center gap-4">
             <a href="/register">
-              <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 font-bold text-lg px-8">
+              <Button size="lg" className="text-white font-bold text-lg px-8 hover:opacity-90" style={{ backgroundColor: '#ff0101' }}>
                 Register Now
               </Button>
             </a>
             <a href="/gallery">
-              <Button size="lg" variant="outline" className="border-2 border-red-600 text-red-600 hover:bg-red-50 font-bold text-lg px-8">
+              <Button size="lg" variant="outline" className="font-bold text-lg px-8 hover:bg-red-50" style={{ borderColor: '#0133ff', color: '#0133ff', borderWidth: '2px' }}>
                 View 2025 Gallery
               </Button>
             </a>

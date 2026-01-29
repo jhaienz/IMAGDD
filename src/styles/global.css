@@ -2,17 +2,114 @@
 
 /* IMAGDD 2026 Custom Theme Colors */
 :root {
-  /* Primary Yellow/Gold Colors */
-  --color-primary-yellow: #FFC107;
-  --color-primary-gold: #FFCA28;
-  --color-primary-amber: #F59E0B;
+  /* Primary Yellow - #ffcc01 */
+  --color-primary: #ffcc01;
 
-  /* Accent Colors */
-  --color-accent-red: #DC2626;
-  --color-accent-red-hover: #B91C1C;
-  --color-accent-green: #16A34A;
+  /* Secondary Blue - #0133ff */
+  --color-secondary: #0133ff;
 
-  /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #FFC107 0%, #FFCA28 50%, #F59E0B 100%);
-  --gradient-button: linear-gradient(to right, #FFCA28, #F59E0B);
+  /* Accent Red - #ff0101 */
+  --color-accent: #ff0101;
+}
+
+/* Custom theme utility classes */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.hover\:text-primary:hover {
+  color: var(--color-primary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+/* Scroll animations - optimized for mobile */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 768px) {
+  .scroll-animate {
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 768px) {
+  .scroll-animate-left {
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+.scroll-animate-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 768px) {
+  .scroll-animate-right {
+    transform: translateX(100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+.scroll-animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 768px) {
+  .scroll-animate-scale {
+    transform: scale(0.8);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
 }

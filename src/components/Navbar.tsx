@@ -15,13 +15,18 @@ export default function Navbar() {
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <a href="/" className="flex items-center space-x-3">
               <img src="/logo.png" alt="IMAGDD Logo" className="h-15 w-auto" />
-              <span className="text-xl font-bold bg-gradient-to-r from-yellow-500 to-amber-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold" style={{ color: '#ffcc01' }}>
                 IMAGDD 2026
               </span>
             </a>
+            <div className="hidden md:flex items-center gap-2 border-l border-gray-200 pl-4">
+              <img src="/[LOGO] CITY SEAL.png" alt="City of Naga Seal" className="h-10 w-auto" />
+              <img src="/[LOGO] IKA AKO KITA AN NAGA.png" alt="Ika Ako Kita An Naga" className="h-10 w-auto" />
+              <img src="/[LOGO] NCIB-ITPO.png" alt="NCIB-ITPO" className="h-10 w-auto" />
+            </div>
           </div>
 
           {/* Desktop Menu */}

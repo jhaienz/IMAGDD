@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-bold mb-4 bg-linear-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
+            <h3 className="text-lg font-bold mb-4" style={{ color: '#ffcc01' }}>
               About IMAGDD
             </h3>
             <p className="text-gray-400 text-sm">
@@ -128,12 +128,27 @@ export default function Footer() {
                 alt="Ryne Media"
                 className="h-12 w-auto rounded-full"
               />
+              <img
+                src="/[LOGO] CITY SEAL.png"
+                alt="City of Naga Seal"
+                className="h-12 w-auto"
+              />
+              <img
+                src="/[LOGO] IKA AKO KITA AN NAGA.png"
+                alt="Ika Ako Kita An Naga"
+                className="h-12 w-auto"
+              />
+              <img
+                src="/[LOGO] NCIB-ITPO.png"
+                alt="NCIB-ITPO"
+                className="h-12 w-auto"
+              />
             </div>
           </div>
 
           <div className="text-center">
             <div className="mb-4">
-              <div className="flex flex-wrap justify-center gap-2 text-sm text-yellow-400">
+              <div className="flex flex-wrap justify-center gap-2 text-sm" style={{ color: '#ffcc01' }}>
                 <span>#IMAGDD2026</span>
                 <span>#GDAPNaga</span>
                 <span>#AdNU</span>

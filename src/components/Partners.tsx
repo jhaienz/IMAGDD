@@ -5,6 +5,9 @@ export default function Partners() {
     { name: "NCF", logo: "/ncf.jpg" },
     { name: "BISCAST", logo: "/biscast.jpg" },
     { name: "Ryne Media", logo: "/ryneMedia.jpg" },
+    { name: "City of Naga", logo: "/[LOGO] CITY SEAL.png" },
+    { name: "Ika Ako Kita An Naga", logo: "/[LOGO] IKA AKO KITA AN NAGA.png" },
+    { name: "NCIB-ITPO", logo: "/[LOGO] NCIB-ITPO.png" },
   ];
 
   return (
@@ -19,7 +22,7 @@ export default function Partners() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center">
           {partners.map((partner, index) => (
             <div
               key={index}

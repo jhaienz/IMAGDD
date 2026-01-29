@@ -26,6 +26,8 @@ pnpm preview
 - **Tailwind CSS v4** - Styling via Vite plugin
 - **TypeScript** - Strict mode enabled
 - **shadcn/ui** - UI component library adapted for Astro + React
+- **lucide-react** - Icon library
+- **canvas-confetti** - Confetti animations
 
 ### Key Patterns
 
@@ -49,13 +51,14 @@ import { Button } from "@/components/ui/button"
 ```
 
 #### Brand Styling
-The site uses GDAP's yellow/gold and red branding inspired by the IMAGDD 2026 poster:
-- Primary gradient: `from-yellow-400 to-amber-500` (vibrant yellow to gold)
-- Hero background: `from-yellow-400 via-yellow-300 to-amber-400`
-- Primary accent: Red (`text-red-600`, `bg-red-600`) for CTAs and important text
-- Secondary accent: Green (`text-green-600`) for variety
-- Focus rings: `focus-visible:ring-red-600`
-- Maintain this visual identity when adding new components
+The site uses a three-color theme based on the IMAGDD 2026 video:
+- **Primary (Yellow)**: `#ffcc01` - Main brand color, hero backgrounds, highlights
+- **Secondary (Blue)**: `#0133ff` - Secondary accents, outline buttons, variety
+- **Accent (Red)**: `#ff0101` - CTAs, important text, call-to-action buttons
+- Primary gradient: `linear-gradient(135deg, #ffcc01 0%, #ffe14d 50%, #e6b800 100%)`
+- CSS custom properties defined in `src/styles/global.css`
+- Scroll animations defined in global.css (`.scroll-animate`, `.scroll-animate-left`, etc.)
+- Use inline styles for precise color matching when Tailwind classes don't match exactly
 
 #### shadcn/ui Components
 UI components in `src/components/ui/` use:
@@ -72,7 +75,8 @@ src/
 │   ├── *.tsx            # React components for page sections
 │   └── *.astro          # Astro-specific components
 ├── layouts/
-│   └── Layout.astro     # Base HTML wrapper with metadata
+│   ├── Layout.astro     # Main layout with Navbar and Footer (use for standard pages)
+│   └── main.astro       # Minimal layout without nav/footer
 ├── lib/
 │   └── utils.ts         # cn() utility for className merging
 ├── pages/               # File-based routing
